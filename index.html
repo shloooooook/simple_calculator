@@ -5,70 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="header">Simple Calculator</title>
-    <style>
-        .calculator {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            margin: 0 auto;
-            border: 3px solid #5c5050;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        h1{
-            margin-left: 390px;
-            color: rgb(100, 21, 179);
+    <link rel="stylesheet" href="style.css">
 
-
-        }
-
-        body {
-            background-color: honeydew;
-        }
-
-        #header {
-            justify-content: center;
-            align-items: center;
-            color: cornflowerblue;
-        }
-
-        #result {
-            font-size: 20px;
-            padding: 10px;
-            border: none;
-            background-color: #bdb0b0;
-            border-radius: 3px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td {
-            text-align: center;
-            padding: 5px;
-            border: 1px solid #5c5050;
-        }
-
-        button {
-            cursor: pointer;
-            width: 100%;
-            background-color: #f5f5f5;
-            border: none;
-            font-size: 16px;
-            border-radius: 3px;
-        }
-
-        button:hover {
-            background-color: #ddd;
-        }
-
-        .operator {
-            background-color: #ccc;
-        }
-    </style>
 </head>
+<script src="script.js"></script>
 
 <body>
     <h1>Simple Calculator</h1>
@@ -101,72 +41,6 @@
             </tr>
         </table>
     </div>
-    <script>
-        let firstNumber = "";
-        let operator = "";
-        let secondNumber = "";
-
-        function appendNumber(number) {
-            document.getElementById("result").value += number;
-        }
-
-        function selectOperator(op) {
-            if (operator === "") {
-                firstNumber = document.getElementById("result").value;
-                operator = op;
-                document.getElementById("result").value += ` ${op} `;
-            } else {
-                // If an operator is already selected, replace it with the new one
-                let currentValue = document.getElementById("result").value;
-                document.getElementById("result").value = currentValue.slice(0, -2) + ` ${op} `;
-                operator = op;
-            }
-        }
-
-        function clearResult() {
-            firstNumber = "";
-            operator = "";
-            secondNumber = "";
-            document.getElementById("result").value = "";
-        }
-
-        function calculate() {
-            const currentValue = document.getElementById("result").value;
-            if (operator === "") return;
-
-            const parts = currentValue.split(` ${operator} `);
-            if (parts.length !== 2) return;
-
-            const num1 = parseFloat(parts[0]);
-            const num2 = parseFloat(parts[1]);
-
-            let result = 0;
-
-            switch (operator) {
-                case "+":
-                    result = num1 + num2;
-                    break;
-                case "-":
-                    result = num1 - num2;
-                    break;
-                case "*":
-                    result = num1 * num2;
-                    break;
-                case "/":
-                    if (num2 === 0) {
-                        alert("Division by zero is not allowed!");
-                        return;
-                    }
-                    result = num1 / num2;
-                    break;
-            }
-
-            document.getElementById("result").value = result;
-            firstNumber = result;  // for chaining calculations
-            operator = "";
-            secondNumber = "";
-        }
-    </script>
 </body>
 
 </html>
