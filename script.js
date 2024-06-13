@@ -12,7 +12,6 @@ function selectOperator(op) {
         operator = op;
         document.getElementById("result").value += ` ${op} `;
     } else {
-        // If an operator is already selected, replace it with the new one
         let currentValue = document.getElementById("result").value;
         document.getElementById("result").value = currentValue.slice(0, -2) + ` ${op} `;
         operator = op;
@@ -57,7 +56,7 @@ function calculate() {
     }
 
     document.getElementById("result").value = result;
-    firstNumber = result;  // for chaining calculations
+    firstNumber = result;  
     operator = "";
     secondNumber = "";
 }
