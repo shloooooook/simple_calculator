@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="header">Simple Calculator</title>
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<script src="script.js"></script>
-
-<body>
-    <p id="h1">Simple Calculator</p>
-    <div class="calculator">
-        <input type="text" id="result" readonly>
-        <table>
-            <tr>
-                <td><button class="left" onclick="appendNumber('7')">7</button></td>
-                <td><button class="cen" onclick="appendNumber('8')">8</button></td>
-                <td><button class="right" onclick="appendNumber('9')">9</button></td>
-                <td><button class="op" onclick="selectOperator('/')">/</button></td>
-            </tr>
-            <tr>
-                <td><button class="left" onclick="appendNumber('4')">4</button></td>
-                <td><button class="cen" onclick="appendNumber('5')">5</button></td>
-                <td><button class="right" onclick="appendNumber('6')">6</button></td>
-                <td><button class="op" onclick="selectOperator('*')">x</button></td>
-            </tr>
-            <tr>
-                <td><button class="left" onclick="appendNumber('1')">1</button></td>
-                <td><button class="cen" onclick="appendNumber('2')">2</button></td>
-                <td><button class="right" onclick="appendNumber('3')">3</button></td>
-                <td><button class="op" onclick="selectOperator('-')">-</button></td>
-            </tr>
-            <tr>
-                <td><button class="left" onclick="appendNumber('0')">0</button></td>
-                <td><button class="cen" onclick="clearResult()">C</button></td>
-                <td><button class="right" onclick="calculate()">=</button></td>
-                <td><button class="op"onclick="selectOperator('+')">+</button></td>
-            </tr>
-        </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SIMPLE CALCULATOR</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>SIMPLE CALCULATOR</h1>
+      <div class="calculator">
+        <input type="text" id="inputBox" placeholder="0" />
+        <div>
+          <button class="button operator">AC</button>
+          <button class="button operator">DEL</button>
+          <button class="button operator">%</button>
+          <button class="button operator">/</button>
+        </div>
+        <div>
+          <button class="button">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button class="button operator">*</button>
+        </div>
+        <div>
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button operator">-</button>
+        </div>
+        <div>
+          <button class="button">1</button>
+          <button class="button">2</button>
+          <button class="button">3</button>
+          <button class="button operator">+</button>
+        </div>
+        <div>
+          <button class="button">00</button>
+          <button class="button">0</button>
+          <button class="button">.</button>
+          <button class="button equalBtn">=</button>
+        </div>
+        <button class="button historyBtn">History</button>
+      </div>
+      <div id="history" class="history">
+        <h2>Calculation History</h2>
+        <ul id="historyList"></ul>
+      </div>
     </div>
-</body>
 
+    <script src="script.js"></script>
+  </body>
 </html>

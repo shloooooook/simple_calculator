@@ -1,117 +1,109 @@
-.calculator {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
-    border: 3px solid #5c5050;
-    border-radius: 5px;
-    padding: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+        align-items: right;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-.calculator{
-    background: transparent;
-    box-shadow: 0px 3px 20px #6799da;
-}
-#h1 {
-    display: flex;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin-left: 800px;
-    color: rgb(21 43 179);
-    font-size: 45px;
+
+.container {
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
 }
 
 body {
-    background-color: honeydew;
-}
-
-#header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: cornflowerblue;
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+    flex-direction: column;
 }
 
-#result {
-    padding: 30px;
-    font-size: 50px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+.calculator {
+    border: 1px solid #717377;
+    padding: 20px;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    margin-bottom: 20px;
+}
+
+input {
+    width: 320px;
     border: none;
-    background-color: rgb(177 202 238);
-    border-radius: 25px;
-    height: 200px;
+    padding: 24px;
+    margin: 10px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);
+    font-size: 40px;
+    text-align: right;
+    cursor: pointer;
+    color: #ffffff;
 }
 
-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-}
-
-td {
-    text-align: center;
-    padding: 5px;
-    border: 1px solid #5c5050;
-    border-radius: 50%;
+input::placeholder {
+    color: #ffffff;
 }
 
 button {
-    cursor: pointer;
-    width: 100%;
-    background-color:  #B0C4DE;
     border: none;
-    font-size: 50px;
-    border-radius: 50px;
-    border-color: antiquewhite;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #4fc1dd;
+.equalBtn {
+    background-color: #fb7c14;
 }
 
 .operator {
-    background-color: #ccc;
-}
-.cen{
-    padding: 10px;
-    display: table-cell;
-    height: 50px ;
-    width: 50px;
-    border-radius: 50px;
-    border: 1px solid #5c5050;
-    box-sizing: content-box;
-    box-shadow: -8px -8px 15px #97bae9;
-}
-.left{
-    padding: 10px;
-    display: table-cell;
-    height: 50px ;
-    width: 50px;
-    border-radius: 50px;
-    border: 1px solid #5c5050;
-    box-sizing: content-box;
-    box-shadow: -8px -8px 10px #97bae9;
-}
-.right{
-    padding: 10px;
-    display: table-cell;
-    height: 50px ;
-    width: 50px;
-    border-radius: 50px;
-    border: 1px solid #5c5050;
-    box-sizing: content-box;
-    text-align: center;
-    box-shadow: -8px -8px 15px #97bae9;
-
-}
-.op{
-    padding: 10px;
-    display: table-cell;
-    height: 50px ;
-    width: 50px;
-    border-radius: 50px;
-    border: 1px solid #5c5050;
-    box-sizing: content-box;
-    box-shadow: -8px -8px 15px #97bae9;
-
+    color: #6dee0a;
 }
 
+.historyBtn {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #4a90e2;
+}
+
+.history {
+    position:absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+    width: 280px;
+    border: 1px solid #717377;
+    padding: 20px;
+    border-radius: 16px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    color: #ffffff;
+    display: none;
+}
+
+.history h2 {
+    margin-bottom: 10px;
+}
+
+.history ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.history ul li {
+    margin-bottom: 5px;
+}

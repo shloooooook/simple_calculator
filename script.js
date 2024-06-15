@@ -1,62 +1,55 @@
-let firstNumber = "";
-let operator = "";
-let secondNumber = "";
+let input = document.getElementById('inputBox');
+let buttons = document.querySelectorAll('button');
+let historyList = document.getElementById('historyList');
+let historyDiv = document.getElementById('history');
 
-function appendNumber(number) {
-    document.getElementById("result").value += number;
-}
+let string = "";
+let history = [];
+let count = 1;
 
-function selectOperator(op) {
-    if (operator === "") {
-        firstNumber = document.getElementById("result").value;
-        operator = op;
-        document.getElementById("result").value += ` ${op} `;
-    } else {
-        let currentValue = document.getElementById("result").value;
-        document.getElementById("result").value = currentValue.slice(0, -2) + ` ${op} `;
-        operator = op;
-    }
-}
-function clearResult() {
-    firstNumber = "";
-    operator = "";
-    secondNumber = "";
-    document.getElementById("result").value = "";
-}
-
-function calculate() {
-    const currentValue = document.getElementById("result").value;
-    if (operator === "") return;
-
-    const parts = currentValue.split(` ${operator} `);
-    if (parts.length !== 2) return;
-
-    const num1 = parseFloat(parts[0]);
-    const num2 = parseFloat(parts[1]);
-
-    let result = 0;
-
-    switch (operator) {
-        case "+":
-            result = num1 + num2;
-            break;
-        case "-":
-            result = num1 - num2;
-            break;
-        case "*":
-            result = num1 * num2;
-            break;
-        case "/":
-            if (num2 === 0) {
-                alert("Division by zero is not allowed!");
-                return;
+let arr = Array.from(buttons);
+arr.forEach(button => {
+    button.addEventListener('click', (e) => {
+        if (e.target.innerHTML == '=') {
+            try {
+                let result = eval(string);
+                input.value = result;
+                history.push(`${count}: ${string} = ${result}`);
+                count++;
+                updateHistory();
+                string = ""; // Clear input after calculation
+            } catch {
+                input.value = "Error";
+                string = "";
             }
-            result = num1 / num2;
-            break;
-    }
+        } else if (e.target.innerHTML == 'AC') {
+            string = "";
+            input.value = string;
+        } else if (e.target.innerHTML == 'DEL') {
+            string = string.substring(0, string.length - 1);
+            input.value = string;
+        } else if (e.target.innerHTML == 'History') {
+            toggleHistory();
+        } else {
+            string += e.target.innerHTML;
+            input.value = string;
+        }
+    });
+});
 
-    document.getElementById("result").value = result;
-    firstNumber = result;  
-    operator = "";
-    secondNumber = "";
+function updateHistory() {
+    historyList.innerHTML = "";
+    history.forEach(item => {
+        let li = document.createElement('li');
+        li.textContent = item;
+        historyList.appendChild(li);
+    });
+}
+
+function toggleHistory() {
+    if (historyDiv.style.display === "none" || historyDiv.style.display === "") {
+        historyDiv.style.display = "block";
+    } else {
+        historyDiv.style.display = "none";
+    }
 }
